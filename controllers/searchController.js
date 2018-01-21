@@ -7,11 +7,9 @@ module.exports = {
 
 	index: function (req, res) {
 		var query = req.query.q;
-
 		Consulta.findOne({ 'Key': query }, {}, function (err, consulta) {
 			if (err) res.status(500).send(err);
 			else {
-
 				Subasta.findOne({ 'Consulta': consulta }, {}, function (err, subasta) {
 					if (err) res.status(500).send(err);
 					else {
